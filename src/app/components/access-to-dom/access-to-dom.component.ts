@@ -6,7 +6,11 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
   styleUrls: ['./access-to-dom.component.css']
 })
 export class AccessToDomComponent implements OnInit, AfterViewInit {
-  @ViewChild('heading') txt!: ElementRef;
+
+  @ViewChild('heading')
+  txt!: ElementRef;
+
+  public animalClassElements: any[] = [];
 
   constructor() {
   }
@@ -15,19 +19,31 @@ export class AccessToDomComponent implements OnInit, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-   // this.changeHeadingToCats();
-    //this.changeSpansToCats();
+    this.addAnimalClassObjectsToArray();
   }
-  public onHeadingClick():void {
+
+  public onHeadingClick(): void {
     this.changeHeadingToCats();
     this.changeSpansToCats();
   }
 
+  public logAnimalClassElements(): void {
+    for (let animalClassElement of this.animalClassElements) {
+      console.log(animalClassElement);
+    }
+    console.log("W tablicy jest" + this.animalClassElements.length + "elementów")
+  }
+
   private changeSpansToCats() {
+    for (let i = 0; i < this.animalClassElements.length; i++) {
+      this.animalClassElements[i].innerHTML = 'cat';
+    }
+  }
+
+  private addAnimalClassObjectsToArray() {
     let animalClassElements = document.querySelectorAll('.animal');
-    console.log(animalClassElements)
     for (let i = 0; i < animalClassElements.length; i++) {
-      animalClassElements[i].innerHTML = 'cat'
+      this.animalClassElements.push(animalClassElements[i]);
     }
   }
 
@@ -36,7 +52,6 @@ export class AccessToDomComponent implements OnInit, AfterViewInit {
       this.txt.nativeElement.innerHTML = "All about cats";
     }
   }
-
 
 
   //todo https://fsgeek.pl/post/angular-cykl-zycia-komponentu/
