@@ -36,7 +36,8 @@ export class AccessToDomComponent implements OnInit, AfterViewInit {
 
   private changeSpansToCats() {
     for (let i = 0; i < this.animalClassElements.length; i++) {
-      this.animalClassElements[i].innerHTML = 'cat';
+      this.animalClassElements[i].innerHTML = "<strong>cat</strong>";
+      this.animalClassElements[i].className += " cat-color";
     }
   }
 
@@ -50,6 +51,8 @@ export class AccessToDomComponent implements OnInit, AfterViewInit {
   private changeHeadingToCats(): void {
     if (this.txt) {
       this.txt.nativeElement.innerHTML = "All about cats";
+      this.txt.nativeElement.className="cat-color";
+      this.txt.nativeElement.style.textAlign = "center";
     }
   }
 
