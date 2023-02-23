@@ -6,13 +6,15 @@ import {DomStartModule} from "./components/dom-start/dom-start.module";
 import { ProcessingComponent } from './components/processing/processing.component';
 import { AccessToDomComponent } from './components/access-to-dom/access-to-dom.component';
 import { AccessToDomTaskComponent } from './components/access-to-dom/access-to-dom-task/access-to-dom-task.component';
+import { DomEventComponent } from './components/dom-event/dom-event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProcessingComponent,
     AccessToDomComponent,
-    AccessToDomTaskComponent
+    AccessToDomTaskComponent,
+    DomEventComponent
   ],
     imports: [
         BrowserModule,
