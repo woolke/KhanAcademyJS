@@ -7,6 +7,8 @@ import { ProcessingComponent } from './components/processing/processing.componen
 import { AccessToDomComponent } from './components/access-to-dom/access-to-dom.component';
 import { AccessToDomTaskComponent } from './components/access-to-dom/access-to-dom-task/access-to-dom-task.component';
 import { DomEventComponent } from './components/dom-event/dom-event.component';
+import { FormsComponent } from './components/forms/forms.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { DomEventComponent } from './components/dom-event/dom-event.component';
     ProcessingComponent,
     AccessToDomComponent,
     AccessToDomTaskComponent,
-    DomEventComponent
+    DomEventComponent,
+    FormsComponent
   ],
-    imports: [
-        BrowserModule,
-        DomStartModule
-    ],
+  imports: [
+    BrowserModule,
+    DomStartModule,
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
